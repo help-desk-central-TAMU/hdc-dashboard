@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+.dashboard {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  background-image:  linear-gradient(to bottom, rgba(20, 0, 0, 0.7), rgba(55, 0, 0, 0.7)), url("https://it.tamu.edu/images/hero-help.jpg");
+  background-size: 100% 100%;
+  background-color: #5c6681;
+}
+
+.panel {
+  border-radius: 20px;
+  margin: 20px;
+  background-color: rgba(0, 0, 0, 0.4);
+}
