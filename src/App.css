@@ -38,17 +38,64 @@
 }
 
 .dashboard {
-  position: static;
+  display: flex;
   height: 100vh;
-  background-image:  linear-gradient(to bottom, rgba(20, 0, 0, 0.7), rgba(55, 0, 0, 0.7)), url("https://it.tamu.edu/images/hero-help.jpg");
+  background-image:  linear-gradient(to bottom, rgba(101, 35, 30, 0.29), rgba(103, 35, 31, 0.34)), url("https://it.tamu.edu/images/hero-help.jpg");
   background-size: 100% 100%;
   background-color: #5c6681;
+  color: #fff;
 }
 
 .panel {
   border-radius: 20px;
   margin: 15px;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(238, 212, 170, 0.1);
   height: calc(100% - 30px);
-  width: calc(100% - 30px);
+  width: calc(100% - 70px);
+  padding-left: 20px;
+  padding-right: 20px ;
+}
+
+.panel-title{
+  background: rgba(255, 229, 200, 0.15);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  width: auto;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-weight: bolder;
+  font-size: 30px;
+  color: #eeeeee;
+  border-color: rgba(150, 150, 150, 0.53);;
+  border-left-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-bottom-width: 10px ;
+}
+.panel-body{
+  padding-top: 10px;
+  font-weight: bolder;
+  font-size: 50px;
+  color: #d0d0d0;
+}
+
+.panel-title2{
+  background: rgba(255, 229, 200, 0.11);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  width: auto;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-weight: bolder;
+  font-size: 30px;
+  color: #eeeeee;
+  border-color: #d29700;;
+  border-left-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-bottom-width: 10px ;
 }

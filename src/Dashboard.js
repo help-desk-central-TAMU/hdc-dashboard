@@ -2,6 +2,7 @@ import React from 'react'
 import Panel from "./Panel";
 import './App.css'
 import SplitPane from "react-split-pane";
+import {MDBCard, MDBCardBody, MDBCardImage, MDBCol, MDBContainer, MDBRow, MDBTypography} from "mdb-react-ui-kit";
 
 class Dashboard extends React.Component {
     render(){
@@ -12,19 +13,36 @@ class Dashboard extends React.Component {
                     <SplitPane split="vertical" size={1}>
                         <SplitPane split="horizontal" size={1}>
                             <SplitPane split="vertical" size={1}>
-                                <Panel/>
-                                <Panel/>
+                                <Panel title={"Longest Call in Queue"} titleStyle={1}>
+                                    <div className={"panel-body"}>
+                                        00:22:34
+                                    </div>
+                                </Panel>
+                                <Panel title={"Calls in Queue"} titleStyle={1}>
+                                    <div className={"panel-body"}>
+                                        3 Calls
+                                    </div>
+                                </Panel>
                             </SplitPane>
                             <SplitPane split="vertical" size={1}>
-                                <Panel/>
-                                <Panel/>
+                                <Panel title={"Longest Bomgar in Queue"} titleStyle={1}>
+                                    <div className={"panel-body"}>
+                                        3 Calls
+                                    </div>
+                                </Panel>
+                                <Panel title={"Bomgars in Queue"} titleStyle={1}>
+                                    <div className={"panel-body"}>
+                                        3 Calls
+                                    </div>
+                                </Panel>
                             </SplitPane>
                             <SplitPane split="vertical" size={1}>
                                 <Panel/>
                                 <Panel/>
                             </SplitPane>
                         </SplitPane>
-                        <Panel/>
+                        <Panel title={"Current Shift"} titleStyle={1}>
+                        </Panel>
                     </SplitPane>
                     <Panel/>
 
