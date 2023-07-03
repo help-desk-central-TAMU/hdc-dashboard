@@ -1,17 +1,39 @@
 import React from 'react'
 import Panel from "./Panel";
 import './App.css'
+import SplitPane from "react-split-pane";
 
 class Dashboard extends React.Component {
     render(){
         return(
         <div className={"dashboard"}>
-            <Panel height={200} width={300}/>
-            <Panel height={100} width={200}/>
-            <Panel height={300} width={500}/>
-            <Panel height={100} width={200}/>
-            <Panel height={340} width={400}/>
-            <Panel height={130} width={320}/>
+            <SplitPane split="vertical">
+                <SplitPane split="horizontal" size={2}>
+                    <SplitPane split="vertical" size={1}>
+                        <SplitPane split="horizontal" size={1}>
+                            <SplitPane split="vertical" size={1}>
+                                <Panel/>
+                                <Panel/>
+                            </SplitPane>
+                            <SplitPane split="vertical" size={1}>
+                                <Panel/>
+                                <Panel/>
+                            </SplitPane>
+                            <SplitPane split="vertical" size={1}>
+                                <Panel/>
+                                <Panel/>
+                            </SplitPane>
+                        </SplitPane>
+                        <Panel/>
+                    </SplitPane>
+                    <Panel/>
+
+                </SplitPane>
+                <SplitPane split="vertical" minSize={"400"} >
+                    <Panel/>
+                </SplitPane>
+            </SplitPane>
+
         </div>
         )
     }
