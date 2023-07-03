@@ -11,7 +11,7 @@ class Dashboard extends React.Component {
             <SplitPane split="vertical">
                 <SplitPane split="horizontal" size={2}>
                     <SplitPane split="vertical" size={1}>
-                        <SplitPane split="horizontal" size={1}>
+                        <SplitPane split="horizontal" size={1.75}>
                             <SplitPane split="vertical" size={1}>
                                 <Panel title={"Longest Call in Queue"} titleStyle={1}>
                                     <div className={"panel-body"}>
@@ -42,13 +42,16 @@ class Dashboard extends React.Component {
                             </SplitPane>
                         </SplitPane>
                         <Panel title={"Current Shift"} titleStyle={1}>
+                            <h1>Student Leader</h1>
+                            <h1>Dinesh B.</h1>
+                            <hr/>
                         </Panel>
                     </SplitPane>
                     <Panel/>
 
                 </SplitPane>
                 <SplitPane split="vertical" minSize={"400"} >
-                    <Panel/>
+                    <Panel title={"Phone Queue"} titleStyle={1}/>
                 </SplitPane>
             </SplitPane>
 
