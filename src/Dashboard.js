@@ -1,4 +1,5 @@
 import React from 'react'
+import Time from "./Time";
 import Panel from "./Panel";
 import './App.css'
 import SplitPane from "react-split-pane";
@@ -27,7 +28,7 @@ class Dashboard extends React.Component {
                             <SplitPane split="vertical" size={1}>
                                 <Panel title={"Longest Bomgar in Queue"} titleStyle={1}>
                                     <div className={"panel-body"}>
-                                        3 Calls
+                                        00:00
                                     </div>
                                 </Panel>
                                 <Panel title={"Bomgars in Queue"} titleStyle={1}>
@@ -37,8 +38,8 @@ class Dashboard extends React.Component {
                                 </Panel>
                             </SplitPane>
                             <SplitPane split="vertical" size={1}>
-                                <Panel/>
-                                <Panel/>
+                                <Panel><Time className={"time-panel"}/></Panel>
+                                <Panel></Panel>
                             </SplitPane>
                         </SplitPane>
                         <Panel title={"Current Shift"} titleStyle={1}>

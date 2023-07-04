@@ -99,3 +99,19 @@
   border-bottom-style: solid;
   border-bottom-width: 10px ;
 }
+
+.time-panel-text{
+  font-family: 'GothicOne', sans-serif;
+  font-size: 85px;
+  padding-top: 25px;
+}
+
+.date-panel-text{
+  font-family: 'GothicOne', sans-serif;
+  font-size: 30px;
+}
+
+@font-face {
+  font-family: 'GothicOne';
+  src: url('/public/PathwayGothicOne-Regular.ttf');
+}
