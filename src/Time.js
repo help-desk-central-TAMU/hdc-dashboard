@@ -20,7 +20,7 @@ function Time(props) {
                 <div className={"date-panel-text"}>
                     {time.toDateString()}
                 </div>
-                </div>;
+                </div>
 }
 
 export default Time
