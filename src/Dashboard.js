@@ -3,6 +3,8 @@ import Time from "./Time";
 import Panel from "./Panel";
 import Fetch from "./Fetch";
 import AgentData from "./AgentData"
+import {BomgarLongestWaiting,BomgarQueue} from "./BomgarData"
+import {CiscoLongestWaiting, CiscoQueue} from "./CiscoData";
 import './App.css'
 import SplitPane from "react-split-pane";
 import {MDBCard, MDBCardBody, MDBCardImage, MDBCol, MDBContainer, MDBRow, MDBTypography} from "mdb-react-ui-kit";
@@ -17,26 +19,18 @@ class Dashboard extends React.Component {
                         <SplitPane split="horizontal" size={1.75}>
                             <SplitPane split="vertical" size={1}>
                                 <Panel title={"Longest Call in Queue"} titleStyle={1}>
-                                    <div className={"panel-body"}>
-                                        00:22:34
-                                    </div>
+                                    <CiscoLongestWaiting/>
                                 </Panel>
                                 <Panel title={"Calls in Queue"} titleStyle={1}>
-                                    <div className={"panel-body"}>
-                                        3 Calls
-                                    </div>
+                                    <CiscoQueue/>
                                 </Panel>
                             </SplitPane>
                             <SplitPane split="vertical" size={1}>
                                 <Panel title={"Longest Bomgar in Queue"} titleStyle={1}>
-                                    <div className={"panel-body"}>
-                                        00:00
-                                    </div>
+                                    <BomgarLongestWaiting/>
                                 </Panel>
                                 <Panel title={"Bomgars in Queue"} titleStyle={1}>
-                                    <div className={"panel-body"}>
-                                        3 Calls
-                                    </div>
+                                    <BomgarQueue/>
                                 </Panel>
                             </SplitPane>
                             <SplitPane split="vertical" size={1}>
