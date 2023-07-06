@@ -48,8 +48,11 @@
 
 .panel {
   border-radius: 20px;
+  border-style: solid;
+  border-color: #766564;
+  border-width: thin;
   margin: 15px;
-  background-color: rgba(238, 212, 170, 0.1);
+  background-color: rgba(0, 0, 0, 0.25);
   height: calc(100% - 30px);
   width: calc(100% - 70px);
   padding-left: 20px;
@@ -57,7 +60,7 @@
 }
 
 .panel-title{
-  background: rgba(255, 229, 200, 0.15);
+  background: rgba(255, 255, 255, 0.15);
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   width: auto;

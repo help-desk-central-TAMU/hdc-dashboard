@@ -1,13 +1,12 @@
 import React from 'react'
 import Time from "./Time";
 import Panel from "./Panel";
-import Fetch from "./Fetch";
-import AgentData from "./AgentData"
 import {BomgarLongestWaiting,BomgarQueue} from "./BomgarData"
 import {CiscoLongestWaiting, CiscoQueue} from "./CiscoData";
 import './App.css'
 import SplitPane from "react-split-pane";
-import {MDBCard, MDBCardBody, MDBCardImage, MDBCol, MDBContainer, MDBRow, MDBTypography} from "mdb-react-ui-kit";
+import Carousel from "./Carousel";
+import AgentQueueTable from "./AgentQueue";
 
 class Dashboard extends React.Component {
     render(){
@@ -18,37 +17,38 @@ class Dashboard extends React.Component {
                     <SplitPane split="vertical" size={1}>
                         <SplitPane split="horizontal" size={1.75}>
                             <SplitPane split="vertical" size={1}>
-                                <Panel title={"Longest Call in Queue"} titleStyle={1}>
+                                <Panel title={"Longest Call waiting"} titleStyle={1}>
                                     <CiscoLongestWaiting/>
                                 </Panel>
-                                <Panel title={"Calls in Queue"} titleStyle={1}>
+                                <Panel title={"Calls waiting"} titleStyle={1}>
                                     <CiscoQueue/>
                                 </Panel>
                             </SplitPane>
                             <SplitPane split="vertical" size={1}>
-                                <Panel title={"Longest Bomgar in Queue"} titleStyle={1}>
+                                <Panel title={"Longest Bomgar waiting"} titleStyle={1}>
                                     <BomgarLongestWaiting/>
                                 </Panel>
-                                <Panel title={"Bomgars in Queue"} titleStyle={1}>
+                                <Panel title={"Bomgars waiting"} titleStyle={1}>
                                     <BomgarQueue/>
                                 </Panel>
                             </SplitPane>
                             <SplitPane split="vertical" size={1}>
                                 <Panel><Time className={"time-panel"}/></Panel>
-                                <Panel><AgentData/></Panel>
+                                <Panel></Panel>
                             </SplitPane>
                         </SplitPane>
                         <Panel title={"Current Shift"} titleStyle={1}>
-                            <h1>Student Leader</h1>
-                            <h1>Dinesh B.</h1>
-                            <hr/>
                         </Panel>
                     </SplitPane>
-                    <Panel/>
+                    <Panel>
+                        <Carousel/>
+                    </Panel>
 
                 </SplitPane>
                 <SplitPane split="vertical" minSize={"400"} >
-                    <Panel title={"Phone Queue"} titleStyle={1}/>
+                    <Panel title={"Phone Queue"} titleStyle={1}>
+                        <AgentQueueTable/>
+                    </Panel>
                 </SplitPane>
             </SplitPane>
 
