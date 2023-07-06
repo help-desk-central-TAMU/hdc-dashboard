@@ -9,10 +9,11 @@ class Panel extends React.Component {
 
     render(){
         return(
-            <div className={"panel"}>
+            <div className={"panel"} >
                 <center>
-                    <div className={ (this.props.titleStyle === 1) ? "panel-title" : (this.props.titleStyle === 2) ? "panel-title2" :  null +" align-self-center"}>{this.props.title}</div>
+                    <div  className={ (this.props.titleStyle === 1) ? "panel-title" : (this.props.titleStyle === 2) ? "panel-title2" :  null +" align-self-center"}
 
+                    >{this.props.title}</div>
                 </center>
 
                 {this.props.children}

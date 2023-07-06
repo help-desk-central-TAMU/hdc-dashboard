@@ -9,6 +9,7 @@ import Carousel from "./Carousel";
 import AgentQueueTable from "./AgentQueue";
 
 class Dashboard extends React.Component {
+
     render(){
         return(
         <div className={"dashboard"}>

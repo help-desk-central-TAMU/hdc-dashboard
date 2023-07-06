@@ -20,7 +20,6 @@ ChartJS.register(
     Legend
 );
 
-
 export const options = {
     maintainAspectRatio: false,
     responsive: true,
@@ -37,7 +36,6 @@ export const options = {
             },
             position: 'top',
         },
-
         title: {
             display: true,
             text: 'Open tickets in all queues',
