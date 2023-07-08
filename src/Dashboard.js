@@ -7,6 +7,8 @@ import './App.css'
 import SplitPane from "react-split-pane";
 import Carousel from "./Carousel";
 import AgentQueueTable from "./AgentQueue";
+import {ShiftBoard} from "./ShiftBoard";
+import WeatherDisplay from "./Weather";
 
 class Dashboard extends React.Component {
 
@@ -35,10 +37,13 @@ class Dashboard extends React.Component {
                             </SplitPane>
                             <SplitPane split="vertical" size={1}>
                                 <Panel><Time className={"time-panel"}/></Panel>
-                                <Panel></Panel>
+                                <Panel>
+                                    <WeatherDisplay/>
+                                </Panel>
                             </SplitPane>
                         </SplitPane>
                         <Panel title={"Current Shift"} titleStyle={1}>
+                            <ShiftBoard/>
                         </Panel>
                     </SplitPane>
                     <Panel>

@@ -41,7 +41,7 @@
   display: flex;
   position: relative;
   height: 100vh;
-  background-image:  linear-gradient(to bottom, rgba(101, 35, 30, 0.29), rgba(103, 35, 31, 0.34)), url("https://it.tamu.edu/images/hero-help.jpg");
+  background-image:  linear-gradient(to bottom, rgba(101, 35, 30, 0.68), rgba(103, 35, 31, 0.68)), url("https://it.tamu.edu/images/hero-help.jpg");
   background-size: 100% 100%;
   background-color: #5c6681;
   color: #fff;
@@ -52,10 +52,10 @@
   border-style: solid;
   border-color: #766564;
   border-width: thin;
-  margin: 15px;
+  margin: 10px;
   background-color: rgba(0, 0, 0, 0.25);
   height: calc(100% - 30px);
-  width: calc(100% - 30px);
+  width: calc(100% - 40px);
   padding-left: 10px;
   padding-right: 10px ;
 }
