@@ -18,10 +18,14 @@ export function BomgarLongestWaiting() {
     );
 }
 
-export function BomgarQueue() {
+export function BomgarQueue({setIsHigh}) {
     const { agentData, queueData, bomgarData } = Fetch();
     const parsedArray = JSON.parse(JSON.stringify(bomgarData, null, 2));
     let length = parsedArray.length;
+
+    if (length > 3 || true) {
+        setIsHigh(true)
+    }
 
     return (
         <div className={"panel-body"}>

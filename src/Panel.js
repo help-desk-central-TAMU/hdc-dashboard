@@ -1,25 +1,22 @@
+// Panel.js
 import React from "react";
 import './App.css'
 
 class Panel extends React.Component {
-
-    constructor(props) {
-        super(props);
-    }
-
     render(){
+        const panelClass = this.props.isHigh ? 'panel red-fade' : 'panel';
         return(
-            <div className={"panel"} >
+            <div className={panelClass} >
                 <center>
-                    <div  className={ (this.props.titleStyle === 1) ? "panel-title" : (this.props.titleStyle === 2) ? "panel-title2" :  null +" align-self-center"}
-
-                    >{this.props.title}</div>
+                    <div className={(this.props.titleStyle === 1) ? "panel-title" :
+                        (this.props.titleStyle === 2) ? "panel-title2" : null +" align-self-center"}>
+                        {this.props.title}
+                    </div>
                 </center>
-
                 {this.props.children}
             </div>
         )
     }
 }
 
-export default Panel
+export default Panel;

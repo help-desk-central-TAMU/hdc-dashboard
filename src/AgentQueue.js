@@ -37,12 +37,12 @@ export default function AgentQueueTable() {
     });
 
     return (
-        <TableContainer style={{background: "rgba(255,255,255,0.1)", marginTop: 20, paddingTop: 20, borderRadius: 20, color: "#fff"}}>
+        <TableContainer className="table-container">
             <Table  aria-label="simple table">
                 <TableHead>
                     <TableRow>
-                        <TableCell style={{fontSize: 30, fontWeight:"bold", color: "#fff" }}>Agent Name</TableCell>
-                        <TableCell align="right" style={{fontSize: 30,  fontWeight:"bold", color: "#fff"}}>Duration</TableCell>
+                        <TableCell className="table-cell">Agent Name</TableCell>
+                        <TableCell align="right" className="table-cell">Duration</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -50,14 +50,14 @@ export default function AgentQueueTable() {
                         <TableRow
                             key={row.name}
                             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                            style={{fontSize: 50, fontWeight: "bold",  background: (row.status === "Ready") ? "rgba(0,255,5,0.22)" : (row.status === "Not Ready") ? "rgba(255,0,0,0.22)" : (row.status === "Work") ? "rgba(255,234,0,0.27)" : (row.status === "Talking") ? "rgba(123,0,255,0.27)" : (row.status === "Reserved") ? "rgba(0,60,255,0.27)" : null }}
+                            className={`table-row table-row-${row.status.toLowerCase().replace(' ', '-')}`}
                         >
-                            <TableCell component="th" scope="row" style={{fontSize: 40, color: "#cecece "}}>
+                            <TableCell component="th" scope="row" className={'table-cell-content'}>
                                 {row.name}
                             </TableCell>
-                            <TableCell align="right"  style={{  paddingBottom: 10, paddingTop: 5}}>
-                                <p style={{fontSize: 40, color: "#cecece ", margin: 0}}>{row.time}</p>
-                                <p style={{fontSize: 20, color: "#cecece ", margin: 0}}>{row.status}</p>
+                            <TableCell align="right"  className="table-cell-duration">
+                                <p className="duration-time">{row.time}</p>
+                                <p className="duration-status">{row.status}</p>
                             </TableCell>
                         </TableRow>
                     ))}

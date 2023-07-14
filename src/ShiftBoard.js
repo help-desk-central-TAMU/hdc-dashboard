@@ -27,7 +27,7 @@ export function ShiftBoard() {
         // if it is 12 am, we need to replace 24 with 00
         // and set the date back a day since the shift will have begun the previous day
         // we also need to add a day to the date to get the correct shift
-        if (time.substring(0, 2) == "24" || time.substring(0, 2) == "00") {
+        if (time.substring(0, 2) === "24" || time.substring(0, 2) === "00") {
             time = '00' + time.substring(2);
             date.setDate(date.getDate() - 1);
             prefix = "1900-01-02T";
@@ -61,17 +61,25 @@ export function ShiftBoard() {
 
     const updateText = async () => {
         let newStationData = {};
-
         for (let station of stations) {
             let result = await getStationDataAsync(station);
             if (result.data.length > 0) {
                 if (result.data[0].FirstName === null)
-                    newStationData[result.station] = result.station + ": None";
+                    newStationData[result.station] =
+                        {
+                            "station": result.station,
+                            "first_name": "None"
+                        };
                 else
-                    newStationData[result.station] = result.station + ': ' + result.data[0].FirstName + " " + result.data[0].LastName.charAt(0) + ".";
+
+                    newStationData[result.station] =
+                        {
+                            "station": result.station,
+                            "first_name": result.data[0].FirstName,
+                            "last_name": result.data[0].LastName
+                        }
             }
         }
-
         setStationData(newStationData);
     };
 
@@ -82,15 +90,26 @@ export function ShiftBoard() {
         // Update data every 60 seconds
         let timer = setInterval(updateText, 60 * 1000);
         return () => clearInterval(timer); // Cleanup on unmount
-    }, []);
+    });
 
+    const NamePanel = ({station, name}) => {
+        return(
+            <div className={"station-name-panel"}>
+                <div className={"station-name-header"}>{station}</div>
+                <div className={"station-name-value"}>{name}</div>
+            </div>
+        )
+    }
     return (
         <div id="stations">
             {stations.map(station =>
-                <h1 key={station} style={{ display: stationData[station] ? "block" : "none" }}>
-                    {stationData[station] || ''}
-                </h1>
+                <div>
+                    {stationData[station] ?
+                    <NamePanel  key={station} style={{ display: stationData[station] ? "block" : "none" }} name={stationData[station].first_name + " " + stationData[station].last_name} station={station}/>
+                        : null}
+                </div>
             )}
         </div>
     );
 }
+

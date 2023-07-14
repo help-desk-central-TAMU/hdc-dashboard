@@ -21,7 +21,6 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
@@ -37,14 +36,108 @@
   }
 }
 
+:root {
+  --light-background: #c7c7c7;
+  --light-secondary-background: rgba(255, 255, 255, 0.26);
+  --light-text: #000000;
+  --light-secondary-text: #2d2d2d;
+
+  --dark-background: #1f1f25;
+  --dark-secondary-background: rgb(55, 56, 66);
+  --dark-text: #ffffff;
+  --dark-secondary-text: #b6b6b6;
+}
+
+.light {
+  --background: var(--light-background);
+  --secondary-background: var(--light-secondary-background);
+  --text: var(--light-text);
+  --secondary-text: var(--light-secondary-text);
+}
+
+.dark {
+  --background: var(--dark-background);
+  --secondary-background: var(--dark-secondary-background);
+  --text: var(--dark-text);
+  --secondary-text: var(--dark-secondary-text);
+}
+
+div[data-type="Resizer"] {
+
+  background: rgba(255, 0, 0, 0);
+}
+
+.table-container {
+  background: rgba(255,255,255,0.1);
+  margin-top: 20px !important;
+  padding-top: 20px !important;
+  border-radius: 20px !important;
+  color: var(--text) !important;
+}
+
+.table-cell {
+  font-size: 30px !important;
+  font-weight: bold !important;
+  color: var(--text) !important;
+}
+
+.table-cell-content {
+  font-size: 40px !important;
+  color: var(--text) !important;
+}
+
+.table-cell-duration {
+  padding-bottom: 10px !important;
+  padding-top: 5px !important;
+  color: var(--text) !important;
+
+}
+
+.duration-time {
+  font-size: 40px !important;
+  margin: 0 !important;
+  color: var(--text) !important;
+}
+
+.duration-status {
+  font-size: 20px !important;
+  margin: 0 !important;
+}
+
+.agent-name{
+  font-size: 40px  !important;
+}
+
+/* Specific row classes based on the status */
+.table-row-ready {
+  background: rgba(0,255,5,0.22);
+}
+
+.table-row-not-ready {
+  background: rgba(255,0,0,0.22);
+}
+
+.table-row-work {
+  background: rgba(255,234,0,0.27);
+}
+
+.table-row-talking {
+  background: rgba(123,0,255,0.27);
+}
+
+.table-row-reserved {
+  background: rgba(0,60,255,0.27);
+}
+
+
 .dashboard {
   display: flex;
   position: relative;
   height: 100vh;
-  background-image:  linear-gradient(to bottom, rgba(101, 35, 30, 0.68), rgba(103, 35, 31, 0.68)), url("https://it.tamu.edu/images/hero-help.jpg");
   background-size: 100% 100%;
-  background-color: #5c6681;
-  color: #fff;
+  background-color: var(--background);
+  color: var(--text);
+  padding-bottom: 0px;
 }
 
 .panel {
@@ -53,11 +146,21 @@
   border-color: #766564;
   border-width: thin;
   margin: 10px;
-  background-color: rgba(0, 0, 0, 0.25);
-  height: calc(100% - 30px);
-  width: calc(100% - 40px);
-  padding-left: 10px;
-  padding-right: 10px ;
+  background-color: var(--secondary-background);
+  height: calc(100% - 20px);
+  width: calc(100% - 60px);
+  padding-left: 20px;
+  padding-right: 20px ;
+}
+
+.panel.red-fade {
+  animation: redFade 2s infinite;
+}
+
+@keyframes redFade {
+  0% {background-color: var(--secondary-background);}
+  50% {background-color: #bd4747;}
+  100% {background-color: var(--secondary-background);}
 }
 
 .panel-title{
@@ -71,7 +174,6 @@
   padding-right: 20px;
   font-weight: bolder;
   font-size: 30px;
-  color: #eeeeee;
   border-color: rgba(150, 150, 150, 0.53);;
   border-left-style: solid;
   border-right-style: solid;
@@ -82,7 +184,6 @@
   padding-top: 10px;
   font-weight: bolder;
   font-size: 50px;
-  color: #d0d0d0;
 }
 
 .panel-title2{
@@ -96,7 +197,6 @@
   padding-right: 20px;
   font-weight: bolder;
   font-size: 30px;
-  color: #eeeeee;
   border-color: #d29700;;
   border-left-style: solid;
   border-right-style: solid;
@@ -113,6 +213,39 @@
 .date-panel-text{
   font-family: 'GothicOne', sans-serif;
   font-size: 30px;
+}
+
+.update-panel-text{
+  font-size: 20px;
+  color: #868686;
+}
+
+.station-name-panel{
+  font-size: 30px;
+  font-weight: bold;
+  border-radius: 20px;
+  margin-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.station-name-header{
+  background: rgba(255, 255, 255, 0.15);
+  font-size: 30px;
+  font-weight: bold;
+  padding: 5px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.station-name-value{
+  color: var(--secondary-text);
+  background: var(--background);
+  font-size: 28px;
+  padding: 5px;
+  padding-bottom: 10px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 @font-face {

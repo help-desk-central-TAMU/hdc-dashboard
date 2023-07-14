@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Fetch = ()=> {
     const [agentData, setAgentData] = useState([]);
@@ -9,7 +9,7 @@ const Fetch = ()=> {
         // Function to fetch data from the server
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:5000/data');  // Replace with the appropriate URL
+                const response = await fetch('http://127.0.0.1:5000/data');  // Replace with the appropriate URL
                 const data = await response.json();
 
                 setAgentData(data.agent_data);

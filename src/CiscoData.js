@@ -18,7 +18,7 @@ export function CiscoLongestWaiting() {
 }
 
 export function CiscoQueue() {
-    const { agentData, queueData, bomgarData } = Fetch();
+    const queueData= Fetch()["queueData"];
     const parsedArray = JSON.parse(JSON.stringify(queueData, null, 2));
     let callsWaiting = 0;
     parsedArray.forEach((item) => {
