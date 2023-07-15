@@ -25,6 +25,7 @@ const Fetch = ()=> {
         const interval = setInterval(fetchData, 1000);
 
         return () => clearInterval(interval);
+
     }, []);
 
     return { agentData, queueData, bomgarData };

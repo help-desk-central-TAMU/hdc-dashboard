@@ -158,8 +158,8 @@ div[data-type="Resizer"] {
 }
 
 @keyframes redFade {
-  0% {background-color: var(--secondary-background);}
-  50% {background-color: #bd4747;}
+  0% {background-color: rgba(255, 255, 255, 0.15)}
+  50% {background-color: rgba(255, 0, 0, 0.72);}
   100% {background-color: var(--secondary-background);}
 }
 
@@ -180,11 +180,20 @@ div[data-type="Resizer"] {
   border-bottom-style: solid;
   border-bottom-width: 10px ;
 }
+
+.panel-title.red-fade {
+  animation: redFade 2s infinite;
+}
+
 .panel-body{
   padding-top: 10px;
   font-weight: bolder;
   font-size: 50px;
 }
+.panel-title2.red-fade {
+  animation: redFade 2s infinite;
+}
+
 
 .panel-title2{
   background: rgba(255, 229, 200, 0.11);

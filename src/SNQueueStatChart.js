@@ -11,6 +11,8 @@ import {
 import { Bar } from 'react-chartjs-2';
 import {faker} from "@faker-js/faker";
 import {ThemeContext} from './ThemeContext';
+import FetchSN from "./fetchSN";
+import fetchSN from "./fetchSN";
 
 ChartJS.register(
     CategoryScale,
@@ -23,33 +25,6 @@ ChartJS.register(
 
 const labels = ['5 hours ago', '3 hours ago', '1 hour ago', '30 min ago', 'Now'];
 
-const data = {
-    labels,
-    datasets: [
-        {
-            fill: true,
-            label: 'Contact Center',
-            data: labels.map(() => faker.datatype.number({ min: -0, max: 20 })),
-            borderColor: 'rgba(157,0,255,0.7)',
-            backgroundColor: '#4942E4',
-
-        },
-        {
-            label: 'Tier II',
-            data: labels.map(() => faker.datatype.number({ min: -0, max: 20 })),
-            borderColor: 'rgba(255,128,0,0.7)',
-            backgroundColor: '#8696FE',
-            fill: true
-        },
-        {
-            label: 'Triage',
-            data: labels.map(() => faker.datatype.number({ min: -0, max: 20 })),
-            borderColor: 'rgba(235,53,53,0.7)',
-            backgroundColor: '#ccbcfc',
-            fill: true
-        },
-    ],
-};
 
 const SNQueueStatChart = () => {
     const { theme } = useContext(ThemeContext);
@@ -117,9 +92,38 @@ const SNQueueStatChart = () => {
         }
     }), [theme, text_color]);
 
+
+    const {serviceNowData} = FetchSN()
+    console.log(serviceNowData)
     return (
         <div className="chart-container" style={{ height: "100%", width: "100%"}}>
-            <Bar options={options} data={data} />
+            <Bar options={options} data={{
+                labels,
+                datasets: [
+                    {
+                        fill: true,
+                        label: 'Contact Center',
+                        data: [5,5,5,5,serviceNowData.data['contactCenter']],
+                        borderColor: 'rgba(157,0,255,0.7)',
+                        backgroundColor: '#4942E4',
+
+                    },
+                    {
+                        label: 'Tier II',
+                        data: [5,5,5,5,serviceNowData.data['advanced']],
+                        borderColor: 'rgba(255,128,0,0.7)',
+                        backgroundColor: '#8696FE',
+                        fill: true
+                    },
+                    {
+                        label: 'Triage',
+                        data: [5,5,5,5,serviceNowData.data['triage']],
+                        borderColor: 'rgba(235,53,53,0.7)',
+                        backgroundColor: '#ccbcfc',
+                        fill: true
+                    },
+                ],
+            }} />
         </div>
     );
 };
