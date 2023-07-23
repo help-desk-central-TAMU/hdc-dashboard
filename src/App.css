@@ -131,13 +131,10 @@ div[data-type="Resizer"] {
 
 
 .dashboard {
-  display: flex;
-  position: relative;
   height: 100vh;
   background-size: 100% 100%;
   background-color: var(--background);
   color: var(--text);
-  padding-bottom: 0px;
 }
 
 .panel {
@@ -148,7 +145,7 @@ div[data-type="Resizer"] {
   margin: 10px;
   background-color: var(--secondary-background);
   height: calc(100% - 20px);
-  width: calc(100% - 60px);
+  width: calc(100% - 20px);
   padding-left: 20px;
   padding-right: 20px ;
 }
@@ -239,12 +236,12 @@ div[data-type="Resizer"] {
 }
 
 .station-name-header{
+  align-self: flex-start;
   background: rgba(255, 255, 255, 0.15);
-  font-size: 30px;
+  font-size: 20px;
   font-weight: bold;
   padding: 5px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  border-radius: 10px;
 }
 
 .station-name-value{
@@ -255,6 +252,11 @@ div[data-type="Resizer"] {
   padding-bottom: 10px;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  display: flex;              /* Turn this container into a flex container */
+  flex-direction: column;    /* Stack the children (items) vertically */
+  align-items: center;
 }
 
 @font-face {

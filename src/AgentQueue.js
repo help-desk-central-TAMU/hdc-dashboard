@@ -14,7 +14,7 @@ function createData(name, status, time) {
 
 
 export default function AgentQueueTable() {
-    const { agentData, queueData, bomgarData } = Fetch();
+    const { agentData, queueData, bomgarData, setServiceNowData } = Fetch();
     const parsedArray = JSON.parse(JSON.stringify( agentData , null, 2));
 
     const statusPriority = {

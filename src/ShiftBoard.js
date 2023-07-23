@@ -95,8 +95,10 @@ export function ShiftBoard() {
     const NamePanel = ({station, name}) => {
         return(
             <div className={"station-name-panel"}>
-                <div className={"station-name-header"}>{station}</div>
-                <div className={"station-name-value"}>{name}</div>
+                <div className={"station-name-value"}>
+                    <div className={"station-name-header"}>{station}</div>
+                    <div>{name}</div>
+                </div>
             </div>
         )
     }

@@ -13,6 +13,8 @@ import {faker} from "@faker-js/faker";
 import {ThemeContext} from './ThemeContext';
 import FetchSN from "./fetchSN";
 import fetchSN from "./fetchSN";
+import {Message, toaster, useToaster} from "rsuite";
+import async from "async";
 
 ChartJS.register(
     CategoryScale,
@@ -95,6 +97,28 @@ const SNQueueStatChart = () => {
 
     const {serviceNowData} = FetchSN()
     console.log(serviceNowData)
+
+    const toaster = useToaster();
+    const message = (
+        <Message showIcon type={'info'} closable>
+            Service now data not available.
+        </Message>
+    );
+
+    const getData = (element) => {
+        try{
+            if(serviceNowData.data[element] === undefined){
+                toaster.push(message)
+                return 0
+            }
+            else{
+                return serviceNowData.data[element]
+            }}
+        catch {
+            toaster.push(message)
+        }
+    }
+
     return (
         <div className="chart-container" style={{ height: "100%", width: "100%"}}>
             <Bar options={options} data={{
@@ -103,21 +127,21 @@ const SNQueueStatChart = () => {
                     {
                         fill: true,
                         label: 'Contact Center',
-                        data: [5,5,5,5,serviceNowData.data['contactCenter']],
+                        data: [5,5,5,5, getData('contactCenter')],
                         borderColor: 'rgba(157,0,255,0.7)',
                         backgroundColor: '#4942E4',
 
                     },
                     {
                         label: 'Tier II',
-                        data: [5,5,5,5,serviceNowData.data['advanced']],
+                        data: [5,5,5,5, getData('advanced')],
                         borderColor: 'rgba(255,128,0,0.7)',
                         backgroundColor: '#8696FE',
                         fill: true
                     },
                     {
                         label: 'Triage',
-                        data: [5,5,5,5,serviceNowData.data['triage']],
+                        data: [5,5,5,5, getData('triage')],
                         borderColor: 'rgba(235,53,53,0.7)',
                         backgroundColor: '#ccbcfc',
                         fill: true

@@ -55,9 +55,13 @@ def run_schedule():
         schedule.run_pending()
         time.sleep(1)
 
-
 if __name__ == '__main__':
-    schedule.every(15).seconds.do(getData)
+    user_input = ""
+    while user_input.lower() != "start":
+        user_input = input("Enter 'start' to start the service: ")
+
+    # Once "start" has been entered, continue with the rest of the code:
+    schedule.every(5).seconds.do(getData)
     t = Thread(target=run_schedule)
     t.start()
-    app.run(port=5001)  # Replace 8080 with your desired port number
+    app.run(port=5001)  # Use Flask's threading

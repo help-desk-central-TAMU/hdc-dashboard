@@ -11,13 +11,22 @@ import {ShiftBoard} from "./ShiftBoard";
 import WeatherDisplay from "./Weather";
 import {ThemeContext} from './ThemeContext';
 import {Button} from "@mui/material";
+import {Message, useToaster} from "rsuite";
+import 'rsuite/dist/rsuite.min.css';
 
 function Dashboard() {
     const [theme, setTheme] = useState('dark');
     const [isHigh, setIsHigh] = useState(false);
-
+    const toaster = useToaster();
+    const message = (
+        <Message showIcon type={'info'} closable>
+            Theme switched to '{theme}'.
+        </Message>
+    );
     const switchTheme = () => {
         setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
+        toaster.push(message,{ label: 'topCenter', value: 'topCenter' })
+        console.log("toaster should have displayed")
     }
 
     const style = {
