@@ -229,7 +229,8 @@ div[data-type="Resizer"] {
 .station-name-panel{
   font-size: 30px;
   font-weight: bold;
-  border-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   margin-top: 20px;
   padding-left: 20px;
   padding-right: 20px;
@@ -241,7 +242,8 @@ div[data-type="Resizer"] {
   font-size: 20px;
   font-weight: bold;
   padding: 5px;
-  border-radius: 10px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
 .station-name-value{
@@ -252,8 +254,6 @@ div[data-type="Resizer"] {
   padding-bottom: 10px;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
   display: flex;              /* Turn this container into a flex container */
   flex-direction: column;    /* Stack the children (items) vertically */
   align-items: center;

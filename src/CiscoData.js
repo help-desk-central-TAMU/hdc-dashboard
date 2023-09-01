@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Fetch from "./Fetch"
 
 export function CiscoLongestWaiting() {
     const { agentData, queueData, bomgarData } = Fetch();
     const parsedArray = JSON.parse(JSON.stringify(queueData, null, 2));
     let times = [];
-    let length = parsedArray.length;
     parsedArray.forEach((item) => {
         times.push(item[1]);
     })

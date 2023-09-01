@@ -26,7 +26,7 @@ const FetchSN = ()=> {
 
         const fetchServiceNowData = async () => {
             try {
-                const response = await fetch('http://localhost:8080/http://127.0.0.1:5001/sn');  // Replace with the appropriate URL
+                const response = await fetch('http://localhost:5002/sn');  // Replace with the appropriate URL
                 const data2 = await response.json();
                 setServiceNowData(data2);
 
